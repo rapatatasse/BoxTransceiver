@@ -1,0 +1,15 @@
+{
+  "name": "nexconec-box",
+  "version": "1.0.0",
+  "description": "Interface web pour Nexconec Box",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-hid.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "node-hid": "^2.1.2"
+  }
+}

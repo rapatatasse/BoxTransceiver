@@ -1,0 +1,18 @@
+0 13:57:51    V3.0.0.2
+1 13:57:52    Connection succeeded.
+2 13:57:53    Select SFP type transceiver
+3 13:59:03    Found QSFP type transceiver
+4 13:59:04    Select QSFP type transceiver
+5 13:59:05    Reading ModuleBaseInfor from QSFP
+6 13:59:05    Reading Success.
+7 13:59:16    Module Missing!
+8 13:59:20    Found QSFP type transceiver
+9 13:59:21    Reading ModuleBaseInfor from QSFP
+10 13:59:21    Reading Success.
+11 13:59:22    QSFP-A0 high Tab0 Reading Code Start
+12 13:59:22    Table Select OK
+13 13:59:22    I2C Read OK
+14 13:59:22    QSFP-A0 high Tab0 Reading Code End
+15 13:59:22    A0 high Tab0  191  CheckSum OK!
+16 13:59:22    A0 high Tab0  223  CheckSum OK!
+17 13:59:22    PASS

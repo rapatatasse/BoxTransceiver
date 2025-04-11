@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WriteEEPROMTool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="status-bar">
+            <img src="logo.png" alt="Logo">
+            <div class="connection-status">
+                <div id="deviceStatus">Vérification de la connexion...</div>
+                <div id="deviceInfo"></div>
+                <div class="message-box">
+                    <textarea id="messageBox" readonly></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="file-controls">
+                <input type="text" id="filePath" placeholder="Chemin du fichier hex ou bin" readonly>
+                <button id="openFile">📂</button><!--marque le chemin du fichier hex ou bin injecte le code hex ou bin dans la grille de New File Information-->
+                <button id="loadFile">💾</button><!--injecte  la grille de Module Information-->
+            </div>
+            <div class="address-controls">
+                <label>Cell Address</label>
+                <input type="text" id="cellAddress" readonly>
+                <button id="gotoAddress">Go</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="hex-grids">
+                <!-- Grille du fichier -->
+                <div class="grid-container">
+                    <h3>New File Information</h3>
+                    <div class="hex-grid" id="fileHexGrid"></div>
+                <!-- Tableau File Information -->
+                <div class="info-table">
+                    <h3>File Information</h3>
+                    <table>
+                        <tr>
+                            <td>Vendor Name</td>
+                            <td><input type="text" id="fileVendorName" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>OEM</td>
+                            <td><input type="text" id="fileOEM" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Vendor PN</td>
+                            <td><input type="text" id="fileVendorPN" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Date Code</td>
+                            <td><input type="text" id="fileDateCode" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Vendor SN</td>
+                            <td><input type="text" id="fileVendorSN" readonly></td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+
+                <!-- Grille du module -->
+                <div class="grid-container">
+                    <h3>Module Information</h3>
+                    <div class="hex-grid" id="moduleHexGrid"></div>
+                                    <!-- Tableau Module Information -->
+                <div class="info-table">
+                    <h3>Module Information</h3>
+                    <table>
+                        <tr>
+                            <td>Vendor Name</td>
+                            <td>
+                                <input type="text" id="moduleVendorName">
+                                <button class="lock-button" id="vendorNameLock">🔓</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>OEM</td>
+                            <td><input type="text" id="moduleOEM"></td>
+                        </tr>
+                        <tr>
+                            <td>Vendor PN</td>
+                            <td>
+                                <input type="text" id="moduleVendorPN">
+                                <button class="lock-button" id="vendorPNLock">🔓</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date Code</td>
+                            <td>
+                                <input type="text" id="moduleDateCode">
+                                <button class="lock-button" id="dateCodeLock">🔓</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Vendor SN</td>
+                            <td>
+                                <input type="text" id="moduleVendorSN">
+                                <button class="lock-button" id="vendorSNLock">🔓</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+
+
+
+
+                <div class="write-options">
+                    <div class="option-group">
+                        <label>EC Write Delay</label>
+                        <input type="number" id="ecWriteDelay" value="50">
+                    </div>
+                    <div class="option-group">
+                        <label>Password List</label>
+                        <select id="passwordList"></select>
+                    </div>
+                    <div class="option-group">
+                        <label>Write Password</label>
+                        <input type="text" id="writePassword" value="FFFFFFFF">
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="qsfpDl">
+                        <label for="qsfpDl">QSFP_DL</label>
+                        <input type="checkbox" id="snAutoIncrement">
+                        <label for="snAutoIncrement">SN Auto-incrementing</label>
+                        <input type="checkbox" id="writeByFile">
+                        <label for="writeByFile">Write by File</label>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="readModule">Read Module</button>
+                    <button id="singleWrite">Write Module</button>
+                    <div class="counter">
+                        <label>Count:</label>
+                        <input type="number" id="writeCount" value="0" readonly>
+                        <button id="clearCount">Clear Count</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="codingbox.js"></script><!-- script for connection between app and STP/XFP / QSFP-->
+</body>
+</html>
